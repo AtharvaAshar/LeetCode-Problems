@@ -1,5 +1,4 @@
 # Definition for singly-linked list.
-from collections import Counter
 class ListNode:
     def __init__(self, x):
         self.val = x
