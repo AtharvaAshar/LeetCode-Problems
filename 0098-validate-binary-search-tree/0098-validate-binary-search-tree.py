@@ -6,21 +6,20 @@
 #         self.right = right
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        def minAndMax(root):
-            if root is None:
-                return 10**20,-10 **20
-            lmin,lmax=minAndMax(root.left)
-            rmin,rmax=minAndMax(root.right)
+        def checkBST2(root):
+            if root == None:
+                return 10**20, -10**20, True
+            leftMin, leftMax, isLeftBST,  = checkBST2(root.left)
+            rightMin, rightMax, isRightBST = checkBST2(root.right)
+            minimum = min(root.val, leftMin, rightMin)
+            maximum = max(root.val, leftMax, rightMax)
+            isTreeBST = True
+            if root.val <= leftMax or root.val >= rightMin:
+                isTreeBST = False
+            if not (isLeftBST) or not (isRightBST):
+                isTreeBST = False
 
-            return [min(root.val,min(lmin,rmin)),max(root.val,max(lmax,rmax))]
-        if root is None:
-            return True
-        leftMax=minAndMax(root.left)[1]
-        rightMin=minAndMax(root.right)[0]
-        if root.val>=rightMin or root.val<=leftMax:
-            return False
-        
-        
-        return self.isValidBST(root.left) and self.isValidBST(root.right)
-        
+            return  minimum, maximum,isTreeBST
+        _,_,output=checkBST2(root)
+        return output
             
