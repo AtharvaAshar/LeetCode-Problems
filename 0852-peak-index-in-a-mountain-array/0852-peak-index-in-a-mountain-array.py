@@ -8,5 +8,6 @@ class Solution:
                 r=mid
             elif arr[mid]<arr[mid+1]:
                 l=mid+1
-        return l
+        else:
+            return l
                 
