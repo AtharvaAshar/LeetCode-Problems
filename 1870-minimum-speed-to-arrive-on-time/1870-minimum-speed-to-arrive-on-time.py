@@ -9,7 +9,7 @@ class Solution:
                 i+=1
             totalTime+=dist[-1]/speed
             return totalTime<=hour
-        l,r=0,10**7
+        l,r=1,10**7
         ans=-1
         while l<=r:
             mid=(l+r)//2
