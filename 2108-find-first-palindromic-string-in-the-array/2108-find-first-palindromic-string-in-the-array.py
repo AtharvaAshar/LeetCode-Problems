@@ -7,7 +7,7 @@ class Solution:
                 return False
             return checkP(s,si+1,ei-1)
         for word in words:
-            print(word)
+            
             if checkP(word,0,len(word)-1):
                 return word
         return ""
