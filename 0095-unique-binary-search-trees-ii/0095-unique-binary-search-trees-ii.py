@@ -18,9 +18,8 @@ class Solution:
                 right=helper(i+1,end)
                 for l in left:
                     for r in right:
-                        root=TreeNode(i)
-                        root.left=l
-                        root.right=r
+                        root=TreeNode(i,l,r)
+                        
                         variations.append(root)
             dp[(start,end)]=variations
             return variations
