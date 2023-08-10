@@ -1,8 +1,6 @@
 class Solution:
     def climbStairs(self, n: int) -> int:
-        if n==0: return 0
-        elif n==1: return n
-        elif n==2: return 2
+        if n<=2: return n
         oneStepback=2
         twoStepback=1
         ans=0
