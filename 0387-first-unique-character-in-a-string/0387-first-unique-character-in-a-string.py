@@ -10,7 +10,7 @@ class Solution:
         for i in d:
             if d[i]>=0:
                 ans=min(ans,d[i])
-        print(d)
+        
         return -1 if ans==10**9 else  ans
 
         
