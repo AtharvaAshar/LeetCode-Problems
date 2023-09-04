@@ -7,12 +7,14 @@
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         try:
-            d={}
-            while head.next:
-                if head not in d:
-                    d[head]=1
-                    head=head.next
-                else:
-                    return head
+            slow,fast=head,head
+            while True:
+                slow,fast=slow.next,fast.next.next
+                if slow==fast:
+                    break
+            print(slow.val)
+            while head!=slow:
+                head,slow=head.next,slow.next
+            return head
         except:
             return None
