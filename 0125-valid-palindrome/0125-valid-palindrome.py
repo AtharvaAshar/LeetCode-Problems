@@ -1,17 +1,16 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        o=''
+        o=""
         for i in s:
-            if i.isalpha():
-                o+=i.lower()
-            elif i.isdigit():
+            if i.isalnum():
                 o+=i
-        def checkP(si,ei,o):
+        o=o.lower()
+        print(o)
+        def helper(s,si,ei):
             if si==ei or ei<0:
                 return True
-            
-            if o[si]!=o[ei]:
+            if s[si]!=s[ei]:
                 return False
-            return checkP(si+1,ei-1,o)
-        print(o)
-        return checkP(0,len(o)-1,o) if len(o)>0 else True
+            return helper(s,si+1,ei-1)
+        return helper(o,0,len(o)-1) if len(o)>0 else True
+    
