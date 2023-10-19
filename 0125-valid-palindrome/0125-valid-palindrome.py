@@ -5,7 +5,7 @@ class Solution:
             if i.isalnum():
                 o+=i
         o=o.lower()
-        print(o)
+   
         def helper(s,si,ei):
             if si==ei or ei<0:
                 return True
